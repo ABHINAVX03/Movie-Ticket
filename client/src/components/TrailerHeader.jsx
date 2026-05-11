@@ -3,7 +3,7 @@ import { dummyTrailers } from "../assets/assets";
 import ReactPlayer from "react-player";
 import BlurCircle from "./BlurCircle";
 import { PlayCircleIcon } from "lucide-react";
-import YouTubePlayer from "./YoutubePlayer";
+import YouTubePlayer from "./YouTubePlayer";
 
 const TrailerHeader = () => {
   const [currentTrailer, setCurrentTrailer] = useState(dummyTrailers[0]);
