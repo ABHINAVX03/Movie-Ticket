@@ -5,10 +5,12 @@ import connectDB from './configs/db.js';
 import { clerkMiddleware } from '@clerk/express'
 import { functions, inngest } from './inngest/index.js';
 import {serve} from 'inngest/express'
+import publicRoutes from './routes/publicRoutes.js';
+import adminRoutes from './routes/adminRoutes.js';
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = 3000;
 
 
 // Connect to DB first
@@ -21,6 +23,8 @@ const startServer = async () => {
     app.use(clerkMiddleware())
     // API routing
     app.get('/', (req, res) => res.send('Server is Live!'));
+    app.use('/api', publicRoutes);
+    app.use('/api/admin', adminRoutes);
     app.use('/api/inngest',serve({client:inngest,functions}))
     app.listen(port, () => {
       console.log(`🚀 Server listening at http://localhost:${port}`);
