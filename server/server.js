@@ -22,7 +22,7 @@ const startServer = async () => {
     app.use(cors({
       origin: [
         'http://localhost:5173',
-        'https://movie-ticket-brown.vercel.app'
+        'https://movie-ticket-phi-tan.vercel.app'
       ],
     }));
     app.use(clerkMiddleware())
